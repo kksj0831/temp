@@ -12,13 +12,13 @@ $('ul.tabs li').click(function () {
 	$("#" + tab_id).addClass('current');
 })
 
-$('.item').bind('touchstart', function () {
+$('.item').bind('touchstart mousedown', function () {
 	var item_id = $(this).attr('id');
 	$("#" + item_id).addClass('active');
 	$("#" + item_id + ' div').addClass('active');
 })
 
-$('.item').bind('touchend', function () {
+$('.item').bind('touchend mouseup', function () {
 	var item_id = $(this).attr('id');
 	$("#" + item_id).removeClass('active');
 	$('.oval').removeClass('active');
