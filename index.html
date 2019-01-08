@@ -5,19 +5,7 @@
     <title>디지털 시민시장실</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/acropolis.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <script src="libs/socket.io.js"></script>
-    <script src="views/acropolis-config.js"></script>
-    <script src="views/acropolis-socket.js"></script>
-    <script>
-        let url = 'http://172.30.5.250:53000/'; // for server
-        let acropolisSocket = new AcropolisSocket(io, url, function test(data) {
-            console.log("implement code here for connecting action to 3rd party.");
-            console.log(data);
-        }).connect();
-    </script>
 <body>
     <div id="menu">
         <div>
