@@ -4,52 +4,127 @@
 <head>
     <title>디지털 시민시장실</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/acropolis.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+    <script src="libs/socket.io.js"></script>
+    <script src="views/acropolis-config.js"></script>
+    <script src="views/acropolis-socket.js"></script>
+    <script>
+        let url = 'http://172.30.5.250:53000/'; // for server
+        let acropolisSocket = new AcropolisSocket(io, url, function test(data) {
+            console.log("implement code here for connecting action to 3rd party.");
+            console.log(data);
+        }).connect();
+    </script>
 <body>
-    <div id="category">
-        <div id="logo">
-            <img src="image/logo.png" />
+    <div id="menu">
+        <div>
+            <img id="logo" src="img/logo.png" />
         </div>
-        <ul id="cate-item">
-            <li style="color:#e74d4d"><a href="test.html">실시간 도시 현황</a></li>
-            <li style="color:#669dd1"><a href="2.html">시정 현황</a></li>
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">
+                <div style="background-color:#e74d4d" class="dot"></div>
+                <div class="category-text">실시간 도시 현황</div>
+            </li>
+            <li class="tab-link" data-tab="tab-2">
+                <div style="background-color:#669dd1" class="dot"></div>
+                <div class="category-text">시정 현황</div>
+            </li>
         </ul>
+        <div id="seperator-bottom"></div>
+        <div class="web">
+            <img class="web-icon" src="img/chrome.svg" />
+            <div class="web-text">Web 디지털 시민시장실</div>
+        </div>
     </div>
     <div id="contents">
-        <ul class="list">
-            <li>
-                <div class="item">
-                    <div class="circle">
-                        <img class="icon" src="image/ic_01.png" />
-                    </div>
-                    <div class="item-text">재난 안전</div>
+        <div id="seperator"></div>
+        <div id="tab-1" class="tab-content current">
+            <div id="item01" style="border-color:#007277" class="item">
+                <div style="border-color:#007277" class="oval">
+                    <img class="icon" src="img/icon/ic-01.svg">
                 </div>
-            </li>
-            <li>
-                <div class="item">교통 상황</div>
-            </li>
-            <li>
-                <div class="item">대기 환경</div>
-            </li>
-            <li>
-                <div class="item">물가 현황</div>
-            </li>
-            <li>
-                <div class="item">재정 현황</div>
-            </li>
-            <li>
-                <div class="item">상수도</div>
-            </li>
-            <li>
-                <div class="item">둘레길 공원</div>
-            </li>
-            <li>
-                <div class="item">생활 인구</div>
-            </li>
-        </ul>
+                <div class="item-text">재난 안전</div>
+            </div>
+            <div id="item02" style="border-color:#5a2b85" class="item">
+                <div style="border-color:#5a2b85" class="oval">
+                    <img class="icon" src="img/icon/ic-02.svg" />
+                </div>
+                <div class="item-text">교통 상황</div>
+            </div>
+            <div id="item03" style="border-color:#507c33" class="item">
+                <div style="border-color:#507c33" class="oval">
+                    <img class="icon" src="img/icon/ic-03.svg" />
+                </div>
+                <div class="item-text">대기 환경</div>
+            </div>
+            <div id="item04" style="border-color:#3b3e86" class="item">
+                <div style="border-color:#3b3e86" class="oval">
+                    <img class="icon" src="img/icon/ic-04.svg" />
+                </div>
+                <div class="item-text">물가 현황</div>
+            </div>
+            <div id="item05" style="border-color:#973135" class="item">
+                <div style="border-color:#973135" class="oval">
+                    <img class="icon" src="img/icon/ic-05.svg" />
+                </div>
+                <div class="item-text">재정 현황</div>
+            </div>
+            <div id="item06" style="border-color:#086091" class="item">
+                <div style="border-color:#086091" class="oval">
+                    <img class="icon" src="img/icon/ic-06.svg" />
+                </div>
+                <div class="item-text">상수도</div>
+            </div>
+            <div id="item07" style="border-color:#79700d" class="item">
+                <div style="border-color:#79700d" class="oval">
+                    <img class="icon" src="img/icon/ic-07.svg" />
+                </div>
+                <div class="item-text">둘레길 공원</div>
+            </div>
+            <div id="item08" style="border-color:#6d3c1d" class="item">
+                <div style="border-color:#6d3c1d" class="oval">
+                    <img class="icon" src="img/icon/ic-08.svg" />
+                </div>
+                <div class="item-text">생활 인구</div>
+            </div>
+        </div>
+        <div id="tab-2" class="tab-content">
+            <div id="item09" style="border-color:#333cbb" class="item">
+                <div style="border-color:#333cbb" class="oval">
+                    <img class="icon" src="img/icon/ic-09.svg" />
+                </div>
+                <div class="item-text">시정 지표</div>
+            </div>
+            <div id="item10" style="border-color:#862373" class="item">
+                <div style="border-color:#862373" class="oval">
+                    <img class="icon" src="img/icon/ic-10.svg" />
+                </div>
+                <div class="item-text">주요산업</div>
+            </div>
+            <div id="item11" style="border-color:#8c5e04" class="item">
+                <div style="border-color:#8c5e04" class="oval">
+                    <img class="icon" src="img/icon/ic-11.svg" />
+                </div>
+                <div class="item-text">시정콘텐츠</div>
+            </div>
+            <div id="item12" style="border-color:#007b59" class="item">
+                <div style="border-color:#007b59" class="oval">
+                    <img class="icon" src="img/icon/ic-12.svg" />
+                </div>
+                <div class="item-text">공약지도</div>
+            </div>
+            <div id="item13" style="border-color:#2677cd" class="item">
+                <div style="border-color:#2677cd" class="oval">
+                    <img class="icon" src="img/icon/ic-13.svg" />
+                </div>
+                <div class="item-text">국제협력</div>
+            </div>
+        </div>
     </div>
+    <script src="script/script.js"></script>
 </body>
 
 </html>
